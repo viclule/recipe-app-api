@@ -1,0 +1,14 @@
+version: "3"  # composer version
+
+services:
+  app:
+    build:
+      context: .  # current directory
+    ports:
+      - "8000:8000"
+    volumes:  # pull changes in real time to the container
+      - ./app:/app
+    command: >  # command that runs the service
+      sh -c "python manage.py runserver 0.0.0.0:8000"  # using shell
+
+
